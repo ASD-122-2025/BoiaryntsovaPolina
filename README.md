@@ -1,2 +1,2 @@
-# lab
-Репозиторій
+# BoiaryntsovaPolina
+lab
