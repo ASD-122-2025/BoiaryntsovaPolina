@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Лабораторна робота №2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="lab_2_BoiaryntsovaPolina_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/quarto.js"></script>
+<script src="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/popper.min.js"></script>
+<script src="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lab_2_BoiaryntsovaPolina_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lab_2_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lab_2_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lab_2_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Лабораторна робота №2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="тема-налагоджування-та-робота-в-середовищі-anacondaquarto" class="level2">
+<h2 class="anchored" data-anchor-id="тема-налагоджування-та-робота-в-середовищі-anacondaquarto">Тема: Налагоджування та робота в середовищі Anaconda+Quarto</h2>
+<section id="виконала-бояринцова-поліна" class="level3">
+<h3 class="anchored" data-anchor-id="виконала-бояринцова-поліна">Виконала: Бояринцова Поліна</h3>
+</section>
+<section id="група-кн-24-1" class="level3">
+<h3 class="anchored" data-anchor-id="група-кн-24-1">Група: КН-24-1</h3>
+</section>
+<section id="дата-10.03.2025" class="level3">
+<h3 class="anchored" data-anchor-id="дата-10.03.2025">Дата: 10.03.2025</h3>
+</section>
+</section>
+<section id="завантаження-та-встановлення-anaconda" class="level2">
+<h2 class="anchored" data-anchor-id="завантаження-та-встановлення-anaconda">1. Завантаження та встановлення Anaconda</h2>
+<section id="завантаження" class="level3">
+<h3 class="anchored" data-anchor-id="завантаження">1.1 Завантаження</h3>
+<p>Перейдіть на сайт <a href="https://www.anaconda.com/products/distribution">Anaconda</a> та завантажте дистрибутив для вашої операційної системи.</p>
+</section>
+<section id="встановлення" class="level3">
+<h3 class="anchored" data-anchor-id="встановлення">1.2 Встановлення</h3>
+<ol type="1">
+<li>Запустіть інсталятор.<br>
+</li>
+<li>Оберіть “Install for: Just Me (Recommended)”.<br>
+</li>
+<li>Вкажіть шлях (<code>C:\Users\ВашКористувач\Anaconda3</code>).<br>
+</li>
+<li>Додайте Anaconda до змінних середовища (PATH).<br>
+</li>
+<li>Дочекайтеся завершення установки.</li>
+</ol>
+<p><em>Перевіримо встановлення:</em></p>
+<div id="5bc1332e-65c4-4232-9657-492788456354" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>conda <span class="op">--</span>version</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python <span class="op">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3.jpg" class="img-fluid figure-img"></p>
+<figcaption>Перевірка версій в консолі</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="створення-віртуального-середовища" class="level2">
+<h2 class="anchored" data-anchor-id="створення-віртуального-середовища">2. Створення віртуального середовища</h2>
+<p>Після встановлення Anaconda створимо віртуальне середовище <code>StudentLastName_OpenCV</code>.</p>
+<div id="0ae4bc5d-46f9-4dcd-b553-116639884a07" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>conda env <span class="bu">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+# conda environments:
+#
+base                   C:\Users\745_ATS\anaconda3
+BoiaryntsovaPolina_OpenCV * C:\Users\745_ATS\anaconda3\envs\BoiaryntsovaPolina_OpenCV
+</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6.jpg" class="img-fluid figure-img"></p>
+<figcaption>Список середовищ</figcaption>
+</figure>
+</div>
+</section>
+<section id="встановлення-необхідних-бібліотек" class="level2">
+<h2 class="anchored" data-anchor-id="встановлення-необхідних-бібліотек">3. Встановлення необхідних бібліотек</h2>
+<p>Встановимо OpenCV, NumPy та Matplotlib у створене середовище.</p>
+<div id="a6cd8794-f90c-43dd-89ea-1016c5287123" class="cell" data-scrolled="true" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>conda <span class="bu">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># packages in environment at C:\Users\745_ATS\anaconda3\envs\BoiaryntsovaPolina_OpenCV:
+#
+# Name                    Version                   Build  Channel
+anyio                     4.6.2           py310haa95532_0  
+argon2-cffi               21.3.0             pyhd3eb1b0_0  
+argon2-cffi-bindings      21.2.0          py310h827c3e9_1  
+asttokens                 2.0.5              pyhd3eb1b0_0  
+async-lru                 2.0.4           py310haa95532_0  
+attrs                     24.3.0          py310haa95532_0  
+babel                     2.16.0          py310haa95532_0  
+beautifulsoup4            4.12.3          py310haa95532_0  
+blas                      1.0                         mkl  
+bleach                    6.2.0           py310haa95532_0  
+brotli-python             1.0.9           py310h5da7b33_9  
+bzip2                     1.0.8                h2bbff1b_6  
+ca-certificates           2025.2.25            haa95532_0  
+cairo                     1.16.0               hc68a040_5  
+certifi                   2025.1.31       py310haa95532_0  
+cffi                      1.17.1          py310h827c3e9_1  
+charset-normalizer        3.3.2              pyhd3eb1b0_0  
+colorama                  0.4.6           py310haa95532_0  
+comm                      0.2.1           py310haa95532_0  
+contourpy                 1.3.1           py310h214f63a_0  
+cycler                    0.11.0             pyhd3eb1b0_0  
+debugpy                   1.8.11          py310h5da7b33_0  
+decorator                 5.1.1              pyhd3eb1b0_0  
+defusedxml                0.7.1              pyhd3eb1b0_0  
+eigen                     3.4.0                h59b6b97_0  
+exceptiongroup            1.2.0           py310haa95532_0  
+executing                 0.8.3              pyhd3eb1b0_0  
+expat                     2.6.4                h8ddb27b_0  
+fontconfig                2.14.1               hb33846d_3  
+fonttools                 4.55.3          py310h827c3e9_0  
+freetype                  2.12.1               ha860e81_0  
+glib                      2.78.4               hd77b12b_0  
+glib-tools                2.78.4               hd77b12b_0  
+graphite2                 1.3.14               hd77b12b_1  
+gst-plugins-base          1.22.3               hfc3ed34_1  
+gstreamer                 1.22.3               h1779075_1  
+h11                       0.14.0          py310haa95532_0  
+harfbuzz                  10.2.0               hf458a27_0  
+hdf5                      1.14.5               ha36df97_2  
+httpcore                  1.0.2           py310haa95532_0  
+httpx                     0.27.0          py310haa95532_0  
+icc_rt                    2022.1.0             h6049295_2  
+icu                       73.1                 h6c2663c_0  
+idna                      3.7             py310haa95532_0  
+intel-openmp              2023.1.0         h59b6b97_46320  
+ipykernel                 6.29.5          py310haa95532_1  
+ipython                   8.30.0          py310haa95532_0  
+jedi                      0.19.2          py310haa95532_0  
+jinja2                    3.1.6           py310haa95532_0  
+jpeg                      9e                   h827c3e9_3  
+json5                     0.9.25          py310haa95532_0  
+jsonschema                4.23.0          py310haa95532_0  
+jsonschema-specifications 2023.7.1        py310haa95532_0  
+jupyter-lsp               2.2.0           py310haa95532_0  
+jupyter_client            8.6.3           py310haa95532_0  
+jupyter_core              5.7.2           py310haa95532_0  
+jupyter_events            0.12.0          py310haa95532_0  
+jupyter_server            2.15.0          py310haa95532_0  
+jupyter_server_terminals  0.4.4           py310haa95532_1  
+jupyterlab                4.3.4           py310haa95532_0  
+jupyterlab_pygments       0.3.0           py310haa95532_0  
+jupyterlab_server         2.27.3          py310haa95532_0  
+kiwisolver                1.4.8           py310h5da7b33_0  
+krb5                      1.20.1               h5b6d351_0  
+lcms2                     2.16                 hb4a4139_0  
+lerc                      4.0.0                h5da7b33_0  
+libabseil                 20240116.2      cxx17_h5da7b33_0  
+libclang                  14.0.6          default_hb5a9fac_2  
+libclang13                14.0.6          default_h8e68704_2  
+libdeflate                1.22                 h5bf469e_0  
+libffi                    3.4.4                hd77b12b_1  
+libglib                   2.78.4               ha17d25a_0  
+libiconv                  1.16                 h2bbff1b_3  
+libogg                    1.3.5                h2bbff1b_1  
+libpng                    1.6.39               h8cc25b3_0  
+libpq                     17.4                 h70ee33d_0  
+libprotobuf               4.25.3               hf2fb9eb_0  
+libsodium                 1.0.18               h62dcd97_0  
+libtiff                   4.5.1                h44ae7cf_1  
+libvorbis                 1.3.7                he774522_0  
+libwebp-base              1.3.2                h3d04722_1  
+libxml2                   2.13.5               h24da03e_0  
+lz4-c                     1.9.4                h2bbff1b_1  
+markupsafe                3.0.2           py310h827c3e9_0  
+matplotlib                3.10.0          py310haa95532_0  
+matplotlib-base           3.10.0          py310he19b0ae_0  
+matplotlib-inline         0.1.6           py310haa95532_0  
+mistune                   3.1.2           py310haa95532_0  
+mkl                       2023.1.0         h6b88ed4_46358  
+mkl-service               2.4.0           py310h827c3e9_2  
+mkl_fft                   1.3.11          py310h827c3e9_0  
+mkl_random                1.2.8           py310hc64d2fc_0  
+nbclient                  0.10.2          py310haa95532_0  
+nbconvert-core            7.16.6          py310haa95532_0  
+nbformat                  5.10.4          py310haa95532_0  
+nest-asyncio              1.6.0           py310haa95532_0  
+notebook-shim             0.2.3           py310haa95532_0  
+numpy                     1.26.4          py310h055cbcc_0  
+numpy-base                1.26.4          py310h65a83cf_0  
+opencv                    4.10.0          py310h4e21365_2  
+openjpeg                  2.5.2                hae555c5_0  
+openssl                   3.0.16               h3f729d1_0  
+overrides                 7.4.0           py310haa95532_0  
+packaging                 24.2            py310haa95532_0  
+pandocfilters             1.5.0              pyhd3eb1b0_0  
+parso                     0.8.4           py310haa95532_0  
+pcre2                     10.42                h0ff8eda_1  
+pillow                    11.1.0          py310h096bfcc_0  
+pip                       25.0            py310haa95532_0  
+pixman                    0.40.0               h2bbff1b_1  
+platformdirs              3.10.0          py310haa95532_0  
+ply                       3.11            py310haa95532_0  
+prometheus_client         0.21.0          py310haa95532_0  
+prompt-toolkit            3.0.43          py310haa95532_0  
+prompt_toolkit            3.0.43               hd3eb1b0_0  
+psutil                    5.9.0           py310h827c3e9_1  
+pure_eval                 0.2.2              pyhd3eb1b0_0  
+pycparser                 2.21               pyhd3eb1b0_0  
+pygments                  2.15.1          py310haa95532_1  
+pyparsing                 3.2.0           py310haa95532_0  
+pyqt                      5.15.10         py310h5da7b33_1  
+pyqt5-sip                 12.13.0         py310h827c3e9_1  
+pysocks                   1.7.1           py310haa95532_0  
+python                    3.10.16              h4607a30_1  
+python-dateutil           2.9.0post0      py310haa95532_2  
+python-fastjsonschema     2.20.0          py310haa95532_0  
+python-json-logger        3.2.1           py310haa95532_0  
+pywin32                   308             py310h5da7b33_0  
+pywinpty                  2.0.14          py310h72d21ff_0  
+pyyaml                    6.0.2           py310h827c3e9_0  
+pyzmq                     26.2.0          py310h5da7b33_0  
+qt-main                   5.15.2              h19c9488_12  
+referencing               0.30.2          py310haa95532_0  
+requests                  2.32.3          py310haa95532_1  
+rfc3339-validator         0.1.4           py310haa95532_0  
+rfc3986-validator         0.1.1           py310haa95532_0  
+rpds-py                   0.22.3          py310h636fa0f_0  
+send2trash                1.8.2           py310haa95532_1  
+setuptools                75.8.0          py310haa95532_0  
+sip                       6.7.12          py310h5da7b33_1  
+six                       1.16.0             pyhd3eb1b0_1  
+sniffio                   1.3.0           py310haa95532_0  
+soupsieve                 2.5             py310haa95532_0  
+sqlite                    3.45.3               h2bbff1b_0  
+stack_data                0.2.0              pyhd3eb1b0_0  
+tbb                       2021.8.0             h59b6b97_0  
+terminado                 0.17.1          py310haa95532_0  
+tinycss2                  1.4.0           py310haa95532_0  
+tk                        8.6.14               h0416ee5_0  
+tomli                     2.0.1           py310haa95532_0  
+tornado                   6.4.2           py310h827c3e9_0  
+traitlets                 5.14.3          py310haa95532_0  
+typing-extensions         4.12.2          py310haa95532_0  
+typing_extensions         4.12.2          py310haa95532_0  
+tzdata                    2025a                h04d1e81_0  
+unicodedata2              15.1.0          py310h827c3e9_1  
+urllib3                   2.3.0           py310haa95532_0  
+vc                        14.42                haa95532_4  
+vs2015_runtime            14.42.34433          he0abc0d_4  
+wcwidth                   0.2.5              pyhd3eb1b0_0  
+webencodings              0.5.1           py310haa95532_1  
+websocket-client          1.8.0           py310haa95532_0  
+wheel                     0.45.1          py310haa95532_0  
+win_inet_pton             1.1.0           py310haa95532_0  
+winpty                    0.4.3                         4  
+xz                        5.6.4                h4754444_1  
+yaml                      0.2.5                he774522_0  
+zeromq                    4.3.5                hd77b12b_0  
+zlib                      1.2.13               h8cc25b3_1  
+zstd                      1.5.6                h8880b57_0  </code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6.jpg" class="img-fluid figure-img"></p>
+<figcaption>Завантаження бібліотек</figcaption>
+</figure>
+</div>
+<section id="контрольні-запитання-та-відповіді" class="level3">
+<h3 class="anchored" data-anchor-id="контрольні-запитання-та-відповіді">Контрольні запитання та відповіді</h3>
+<section id="що-таке-pip-і-conda-та-чим-вони-відрізняються-між-собою" class="level4">
+<h4 class="anchored" data-anchor-id="що-таке-pip-і-conda-та-чим-вони-відрізняються-між-собою">1. Що таке pip і conda та чим вони відрізняються між собою?</h4>
+<p><strong>pip</strong> – це стандартний менеджер пакетів Python, який використовується для встановлення та управління бібліотеками з PyPI (Python Package Index).</p>
+<p><strong>conda</strong> – це менеджер пакетів та віртуальних середовищ, який входить до складу Anaconda. Він дозволяє встановлювати пакети як для Python, так і для інших мов програмування (наприклад, R).</p>
+<p>Основні відмінності:</p>
+<ul>
+<li>pip працює лише з пакетами Python, conda підтримує інші типи пакетів.</li>
+<li>conda керує залежностями більш ефективно, оскільки може встановлювати бібліотеки у форматах, що не потребують компіляції.</li>
+<li>conda має вбудовані механізми для створення та управління віртуальними середовищами.</li>
+</ul>
+</section>
+<section id="як-виконати-налаштування-середовища-за-допомогою-virtualenv" class="level4">
+<h4 class="anchored" data-anchor-id="як-виконати-налаштування-середовища-за-допомогою-virtualenv">2. Як виконати налаштування середовища за допомогою Virtualenv?</h4>
+<p>Virtualenv – це вбудований інструмент Python для створення ізольованих середовищ.</p>
+<section id="покрокова-інструкція" class="level5">
+<h5 class="anchored" data-anchor-id="покрокова-інструкція">Покрокова інструкція:</h5>
+<ol type="1">
+<li>Встановити Virtualenv: <code>pip install virtualenv</code></li>
+<li>Створити нове середовище: <code>virtualenv myenv</code></li>
+<li>Активувати середовище: <code>myenv\Scripts\activate</code></li>
+<li>Встановити необхідні пакети (наприклад, OpenCV): <code>pip install opencv-python</code></li>
+<li>Деактивувати середовище: <code>deactivate</code></li>
+</ol>
+</section>
+</section>
+<section id="сфотографувати-себе-на-телефон-та-імпортувати-своє-зображення-у-форматі-.png-на-початок-робочого-зошита." class="level4">
+<h4 class="anchored" data-anchor-id="сфотографувати-себе-на-телефон-та-імпортувати-своє-зображення-у-форматі-.png-на-початок-робочого-зошита.">3. Сфотографувати себе на телефон та імпортувати своє зображення у форматі .png на початок робочого зошита.</h4>
+<p>Кроки:</p>
+<ol type="1">
+<li>Перенести зображення у директорію з файлом .ipynb (наприклад, у папку images).</li>
+<li>Додати зображення у Jupyter Notebook за допомогою Markdown: <code>![My Photo](images/my_photo.png)</code></li>
+</ol>
+<hr>
+</section>
+<section id="bubble-sort-метод-бульбашки" class="level4">
+<h4 class="anchored" data-anchor-id="bubble-sort-метод-бульбашки">4: Bubble Sort (Метод бульбашки)</h4>
+<div id="6b9e0724-c633-4c6b-88d1-9f5f56a0aa43" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bubble_sort(arr):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n<span class="op">-</span>i<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> arr[j] <span class="op">&gt;</span> arr[j<span class="op">+</span><span class="dv">1</span>]:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                arr[j], arr[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> arr[j<span class="op">+</span><span class="dv">1</span>], arr[j]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Приклад</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> [<span class="dv">64</span>, <span class="dv">34</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">11</span>, <span class="dv">90</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>bubble_sort(arr)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Відсортований масив:"</span>, arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Відсортований масив: [11, 12, 22, 25, 34, 64, 90]</code></pre>
+</div>
+</div>
+</section>
+<section id="як-виконати-компіляцію-вхідного-документа-jupyter-notebook-з-його-середовища-не-використовуючи-інтерфейс-командного-рядка" class="level4">
+<h4 class="anchored" data-anchor-id="як-виконати-компіляцію-вхідного-документа-jupyter-notebook-з-його-середовища-не-використовуючи-інтерфейс-командного-рядка">5. Як виконати компіляцію вхідного документа Jupyter Notebook з його середовища, не використовуючи інтерфейс командного рядка?</h4>
+<p>У Jupyter Notebook можна експортувати .ipynb у .html, .pdf або .md без використання командного рядка:</p>
+<ol type="1">
+<li>Відкрити Jupyter Notebook.</li>
+<li>У верхньому меню натиснути File → Download as.</li>
+<li>Обрати потрібний формат:
+<ul>
+<li>HTML (.html)</li>
+<li>PDF via LaTeX (.pdf)</li>
+<li>Markdown (.md)</li>
+</ul></li>
+</ol>
+</section>
+<section id="як-виконати-компіляцію-jupyter-notebook-у-html" class="level4">
+<h4 class="anchored" data-anchor-id="як-виконати-компіляцію-jupyter-notebook-у-html">6. Як виконати компіляцію Jupyter Notebook у HTML?</h4>
+<p>Для конвертації Jupyter Notebook у HTML можна використати:</p>
+<ol type="1">
+<li><strong>Через командний рядок</strong>: <code>jupyter nbconvert lab_2_StudentLastName.ipynb --to html</code></li>
+<li><strong>За допомогою Quarto</strong> <code>quarto preview lab_2_StudentLastName.ipynb</code></li>
+</ol>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
