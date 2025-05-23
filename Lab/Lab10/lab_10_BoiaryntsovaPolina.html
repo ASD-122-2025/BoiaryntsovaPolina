@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Лабораторна робота №10</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="lab_10_BoiaryntsovaPolina_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/quarto.js"></script>
+<script src="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/popper.min.js"></script>
+<script src="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lab_10_BoiaryntsovaPolina_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lab_10_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lab_10_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lab_10_BoiaryntsovaPolina_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Лабораторна робота №10</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="тема-стиснення-даних.-жадібна-стратегія-на-прикладі-кодування-гафмена" class="level2">
+<h2 class="anchored" data-anchor-id="тема-стиснення-даних.-жадібна-стратегія-на-прикладі-кодування-гафмена">Тема: Стиснення даних. Жадібна стратегія на прикладі кодування Гафмена</h2>
+<section id="виконала-бояринцова-поліна" class="level3">
+<h3 class="anchored" data-anchor-id="виконала-бояринцова-поліна">Виконала: Бояринцова Поліна</h3>
+</section>
+<section id="група-кн-24-1" class="level3">
+<h3 class="anchored" data-anchor-id="група-кн-24-1">Група: КН-24-1</h3>
+</section>
+<section id="дата-22.06.2025" class="level3">
+<h3 class="anchored" data-anchor-id="дата-22.06.2025">Дата: 22.06.2025</h3>
+</section>
+</section>
+<section id="реалізація-прикладу-алгоритму-побудови-дерева-гафмена" class="level2">
+<h2 class="anchored" data-anchor-id="реалізація-прикладу-алгоритму-побудови-дерева-гафмена">1. Реалізація прикладу алгоритму побудови дерева Гафмена</h2>
+<div id="d33e5a73-2d3b-49c0-93a2-aa8e0f9c1b3c" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> heapq</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Вузол дерева Гафмена</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, freq, symbol, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.freq <span class="op">=</span> freq</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.symbol <span class="op">=</span> symbol</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.huff <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Для порівняння в heapq</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.freq <span class="op">&lt;</span> other.freq</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Рекурсивний обхід дерева</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> printNodes(node, val<span class="op">=</span><span class="st">''</span>):</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    newVal <span class="op">=</span> val <span class="op">+</span> <span class="bu">str</span>(node.huff)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> node.left:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        printNodes(node.left, newVal)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> node.right:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        printNodes(node.right, newVal)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> node.left <span class="kw">and</span> <span class="kw">not</span> node.right:</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>node<span class="sc">.</span>symbol<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>newVal<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Дані</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>chars <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'e'</span>, <span class="st">'f'</span>, <span class="st">'g'</span>]</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>freq <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Побудова купи</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> []</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(chars)):</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    heapq.heappush(nodes, Node(freq[i], chars[i]))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">len</span>(nodes) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    left <span class="op">=</span> heapq.heappop(nodes)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    right <span class="op">=</span> heapq.heappop(nodes)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    left.huff <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    right.huff <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    newNode <span class="op">=</span> Node(left.freq <span class="op">+</span> right.freq, left.symbol <span class="op">+</span> right.symbol, left, right)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    heapq.heappush(nodes, newNode)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Виведення кодів</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>printNodes(nodes[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>b -&gt; 00
+f -&gt; 010
+c -&gt; 0110
+d -&gt; 0111
+e -&gt; 100
+g -&gt; 101
+a -&gt; 11</code></pre>
+</div>
+</div>
+</section>
+<section id="виконання-завдання-з-наданим-прикладом" class="level2">
+<h2 class="anchored" data-anchor-id="виконання-завдання-з-наданим-прикладом">2. Виконання завдання з наданим прикладом</h2>
+<section id="розвязання-завдання-за-алгоритмом-гафмена-вручну" class="level3">
+<h3 class="anchored" data-anchor-id="розвязання-завдання-за-алгоритмом-гафмена-вручну">2.1. Розв’язання завдання за алгоритмом Гафмена вручну</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/1.jpg" class="img-fluid figure-img"></p>
+<figcaption>розв’язання_вручну</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/2.jpg" class="img-fluid figure-img"></p>
+<figcaption>розв’язання_вручну</figcaption>
+</figure>
+</div>
+</section>
+<section id="перевірка-результату-за-допомогою-коду." class="level3">
+<h3 class="anchored" data-anchor-id="перевірка-результату-за-допомогою-коду.">2.2. Перевірка результату за допомогою коду.</h3>
+<div id="d5b372e5-9066-40f2-a033-baffec34d1d8" class="cell" data-scrolled="true" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A Вузол дерева Гафмена</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> heapq</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># для відображення кожного символу на його значення Гафмена</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>codes <span class="op">=</span> {}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Для зберігання частоти символів вхідних даних</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>freq <span class="op">=</span> defaultdict(<span class="bu">int</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Вузол дерева Гафмена</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MinHeapNode:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data, freq):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> data</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.freq <span class="op">=</span> freq</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Порівняння вузлів на основі їх частоти</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.freq <span class="op">&lt;</span> other.freq</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># допоміжна функція для виведення символів разом з</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># їх значеннями Гафмена</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> printCodes(root, str_val):</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> root <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> root.data <span class="op">!=</span> <span class="st">'$'</span>: <span class="co"># '$' використовується для внутрішніх вузлів</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(root.data, <span class="st">":"</span>, str_val)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    printCodes(root.left, str_val <span class="op">+</span> <span class="st">"0"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    printCodes(root.right, str_val <span class="op">+</span> <span class="st">"1"</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># допоміжна функція для зберігання символів разом з</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># їх значеннями Гафмена в хеш-таблиці</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> storeCodes(root, str_val):</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> root <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> root.data <span class="op">!=</span> <span class="st">'$'</span>:</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        codes[root.data] <span class="op">=</span> str_val</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    storeCodes(root.left, str_val <span class="op">+</span> <span class="st">"0"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    storeCodes(root.right, str_val <span class="op">+</span> <span class="st">"1"</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"># функція для побудови дерева Гафмена та зберігання його</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># в minHeap</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> HuffmanCodes():</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> minHeap</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Додаємо всі вузли символів до minHeap</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> freq:</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>        heapq.heappush(minHeap, MinHeapNode(key, freq[key]))</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Будуємо дерево Гафмена</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">len</span>(minHeap) <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Витягуємо два вузли з найменшою частотою</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        left <span class="op">=</span> heapq.heappop(minHeap)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        right <span class="op">=</span> heapq.heappop(minHeap)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Створюємо новий внутрішній вузол</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>        top <span class="op">=</span> MinHeapNode(<span class="st">'$'</span>, left.freq <span class="op">+</span> right.freq)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        top.left <span class="op">=</span> left</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        top.right <span class="op">=</span> right</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        heapq.heappush(minHeap, top)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Зберігаємо коди Гафмена після побудови дерева</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    storeCodes(minHeap[<span class="dv">0</span>], <span class="st">""</span>)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co"># допоміжна функція для відображення кожного символу на його</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co"># частоту у вхідному рядку</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcFreq(input_str):</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> input_str:</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        freq[char] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co"># функція перебирає закодований рядок s</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co"># якщо s[i]=='1', то переходить до node-&gt;right</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co"># якщо s[i]=='0', то переходить до node-&gt;left</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co"># якщо це листовий вузол, додає node-&gt;data до нашого вихідного рядка</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> decode_file(root, s):</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    curr <span class="op">=</span> root</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(s)</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s[i] <span class="op">==</span> <span class="st">'0'</span>:</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>            curr <span class="op">=</span> curr.left</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>            curr <span class="op">=</span> curr.right</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>        <span class="co"># досягнуто листового вузла</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> curr.left <span class="kw">is</span> <span class="va">None</span> <span class="kw">and</span> curr.right <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>            ans <span class="op">+=</span> curr.data</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>            curr <span class="op">=</span> root <span class="co"># Повертаємося до кореня для наступного символу</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ans</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="co"># Головний код</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>    minHeap <span class="op">=</span> []</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Вхідний рядок для обробки</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>    input_str <span class="op">=</span> <span class="st">"ABABCAADEEGGFGFABBABAABCBAADEEGFGF"</span> <span class="co"># Використовуємо рядок з попереднього запиту</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Обчислюємо частоту символів</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>    calcFreq(input_str)</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Будуємо коди Гафмена</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    HuffmanCodes()</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Частоти символів:"</span>)</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char, frequency <span class="kw">in</span> <span class="bu">sorted</span>(freq.items()):</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>char<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>frequency<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Коди Гафмена:"</span>)</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> <span class="bu">sorted</span>(codes):</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(key, <span class="st">":"</span>, codes[key])</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Кодуємо вхідний рядок</span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>    encodedString <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> char <span class="kw">in</span> input_str:</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>        encodedString <span class="op">+=</span> codes[char]</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Закодовані дані Гафмена:"</span>)</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(encodedString)</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Декодуємо закодований рядок</span></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>    decodedString <span class="op">=</span> decode_file(minHeap[<span class="dv">0</span>], encodedString)</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Декодовані дані Гафмена:"</span>)</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(decodedString)</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Перевірка, чи збігається декодований рядок з оригіналом</span></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Декодований рядок збігається з оригіналом: </span><span class="sc">{</span>decodedString <span class="op">==</span> input_str<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Частоти символів:
+'A': 10
+'B': 7
+'C': 2
+'D': 2
+'E': 4
+'F': 4
+'G': 5
+
+Коди Гафмена:
+A : 11
+B : 00
+C : 0110
+D : 0111
+E : 100
+F : 010
+G : 101
+
+Закодовані дані Гафмена:
+11001100011011110111100100101101010101010110000110011110001100011110111100100101010101010
+
+Декодовані дані Гафмена:
+ABABCAADEEGGFGFABBABAABCBAADEEGFGF
+
+Декодований рядок збігається з оригіналом: True</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Як можна побачити, вручну розв’язання <em>не дійшло до глобального оптимуму.</em> Є краще рішення. Спробуємо його знайти.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3.jpg" class="img-fluid figure-img"></p>
+<figcaption>краще_розв’язання</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="контрольні-питання" class="level2">
+<h2 class="anchored" data-anchor-id="контрольні-питання">3. Контрольні питання</h2>
+<section id="що-таке-жадібні-алгоритми" class="level3">
+<h3 class="anchored" data-anchor-id="що-таке-жадібні-алгоритми">1. Що таке жадібні алгоритми?</h3>
+<p>Жадібні алгоритми — це методи розв’язання задач, у яких на кожному кроці вибирається локально оптимальне рішення (тобто найкраще на даний момент) з надією, що така стратегія приведе до глобального оптимуму.</p>
+</section>
+<section id="що-таке-префіксний-код-який-код-використовується-у-коді-гафмена" class="level3">
+<h3 class="anchored" data-anchor-id="що-таке-префіксний-код-який-код-використовується-у-коді-гафмена">2. Що таке префіксний код? Який код використовується у коді Гафмена?</h3>
+<p>Префіксний код — це такий код, у якому жодне закодоване значення не є префіксом іншого. Це дозволяє однозначно декодувати будь-яку послідовність без роздільників.</p>
+<p>Код Гафмена — це префіксний двійковий код, який базується на частоті символів: символи з більшою частотою мають коротші коди, а з меншою — довші.</p>
+</section>
+<section id="як-повязана-структура-даних-купа-зі-структурою-даних-черга-з-пріоритетами" class="level3">
+<h3 class="anchored" data-anchor-id="як-повязана-структура-даних-купа-зі-структурою-даних-черга-з-пріоритетами">3. Як пов’язана структура даних «купа» зі структурою даних «черга з пріоритетами»?</h3>
+<p><strong>Купа (heap)</strong> — це структура даних на основі бінарного дерева, в якій батьківський елемент має більший або менший пріоритет, ніж його нащадки.<br>
+<strong>Черга з пріоритетами</strong> — це абстракція, яка дозволяє швидко витягати елемент із найвищим (або найнижчим) пріоритетом.<br>
+<em>Зв’язок:</em> Купа є ефективною реалізацією черги з пріоритетами.<br>
+Наприклад, мін-купа дозволяє за O(logn) додавати елементи і за O(logn) витягати найменший.</p>
+</section>
+<section id="що-таке-стиснення-даних-і-для-чого-воно-використовується-які-його-основні-переваги" class="level3">
+<h3 class="anchored" data-anchor-id="що-таке-стиснення-даних-і-для-чого-воно-використовується-які-його-основні-переваги">4. Що таке стиснення даних і для чого воно використовується? Які його основні переваги?</h3>
+<p>Стиснення даних — це процес перетворення даних у форму, що займає менше пам’яті або обсягу для зберігання чи передавання. Основні переваги:</p>
+<ul>
+<li>Зменшення обсягу пам’яті.</li>
+<li>Прискорення передачі даних по мережі.</li>
+<li>Зменшення вартості зберігання або обслуговування.</li>
+<li>Підвищення ефективності архівування та резервного копіювання.</li>
+</ul>
+</section>
+<section id="які-кроки-необхідно-виконати-для-стиснення-даних-за-допомогою-алгоритму-кодування-гафмена" class="level3">
+<h3 class="anchored" data-anchor-id="які-кроки-необхідно-виконати-для-стиснення-даних-за-допомогою-алгоритму-кодування-гафмена">5. Які кроки необхідно виконати для стиснення даних за допомогою алгоритму кодування Гафмена?</h3>
+<ol type="1">
+<li>Обчислити частоти всіх символів у тексті.</li>
+<li>Створити вузли для кожного символу з вагою (частотою).</li>
+<li>Помістити вузли в мін-купу (чергу з пріоритетами).</li>
+<li>Побудувати дерево Гафмена, об’єднуючи найменші вузли.</li>
+<li>Присвоїти коди кожному символу, проходячи по дереву (0 — вліво, 1 — вправо).</li>
+<li>Закодувати текст, замінюючи символи на їхні коди.</li>
+<li>(Опціонально) Зберегти дерево або таблицю кодів для декодування.</li>
+</ol>
+</section>
+<section id="які-основні-обмеження-та-недоліки-алгоритму-кодування-гафмена-чи-можливо-покращити-його-продуктивність" class="level3">
+<h3 class="anchored" data-anchor-id="які-основні-обмеження-та-недоліки-алгоритму-кодування-гафмена-чи-можливо-покращити-його-продуктивність">6. Які основні обмеження та недоліки алгоритму кодування Гафмена? Чи можливо покращити його продуктивність?</h3>
+<p><strong>Обмеження:</strong></p>
+<ul>
+<li><p>Ефективність зменшується, якщо частоти символів мало відрізняються.<br>
+</p></li>
+<li><p>Не підходить для потокових даних без попереднього аналізу частот.<br>
+</p></li>
+<li><p>Не оптимальний для невеликих повідомлень.<br>
+<strong>Можливі покращення:</strong></p></li>
+<li><p>Використання адаптивного Гафмена (оновлює дерево на ходу).<br>
+</p></li>
+<li><p>Комбінування з іншими методами.</p></li>
+</ul>
+</section>
+<section id="які-існують-альтернативні-методи-стиснення-даних-що-можуть-конкурувати-з-алгоритмом-гафмена" class="level3">
+<h3 class="anchored" data-anchor-id="які-існують-альтернативні-методи-стиснення-даних-що-можуть-конкурувати-з-алгоритмом-гафмена">7. Які існують альтернативні методи стиснення даних, що можуть конкурувати з алгоритмом Гафмена?</h3>
+<p>Альтернативи:</p>
+<ul>
+<li>Арифметичне кодування — часто ефективніше за Гафмена.<br>
+</li>
+<li>LZ77 / LZ78 / LZW — використовуються в ZIP, GIF.<br>
+</li>
+<li>RLE (Run-Length Encoding) — ефективне для повторюваних символів.<br>
+</li>
+<li>DEFLATE (комбінація LZ77 + Huffman) — основа ZIP, PNG.</li>
+</ul>
+</section>
+<section id="які-практичні-застосування-можуть-мати-алгоритми-стиснення-даних-зокрема-алгоритм-гафмена-у-сучасних-інформаційних-системах" class="level3">
+<h3 class="anchored" data-anchor-id="які-практичні-застосування-можуть-мати-алгоритми-стиснення-даних-зокрема-алгоритм-гафмена-у-сучасних-інформаційних-системах">8. Які практичні застосування можуть мати алгоритми стиснення даних, зокрема алгоритм Гафмена, у сучасних інформаційних системах?</h3>
+<p>Застосування:</p>
+<ul>
+<li>Формати файлів: ZIP, PNG, MP3 (як частина алгоритму).<br>
+</li>
+<li>Архіватори: WinRAR, 7-Zip, gzip (частково Гафмен).<br>
+</li>
+<li>Передача даних по мережі.<br>
+</li>
+<li>Операційні системи: для стискання логів, резервних копій.<br>
+</li>
+<li>Інформаційна безпека: зменшення розміру перед шифруванням.<br>
+</li>
+<li>Мобільні пристрої: економія пам’яті та трафіку.</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
